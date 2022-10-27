@@ -8,7 +8,7 @@ import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactsapp.data.SingleContact
+import com.example.contactsapp.model.SingleContact
 import com.example.contactsapp.databinding.ContactsRecyclerViewItemBinding
 import com.example.contactsapp.fragments.ContactsFragmentDirections
 

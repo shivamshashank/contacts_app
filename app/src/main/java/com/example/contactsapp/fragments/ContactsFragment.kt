@@ -13,8 +13,10 @@ import com.example.contactsapp.adapters.ContactsAdapter
 import com.example.contactsapp.databinding.FragmentContactsBinding
 import com.example.contactsapp.utils.Resource
 import com.example.contactsapp.view_model.ContactsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
+@AndroidEntryPoint
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     private lateinit var binding: FragmentContactsBinding
     private lateinit var contactsAdapter: ContactsAdapter
@@ -36,19 +38,21 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
 
         setupContactsRecyclerView()
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.contacts.collectLatest {
-                when (it) {
-                    is Resource.Success -> {
-                        binding.contactsRecyclerView.visibility = View.VISIBLE
+        binding.apply {
+            lifecycleScope.launchWhenStarted {
+                viewModel.contacts.collectLatest {
+                    when (it) {
+                        is Resource.Success -> {
+                            contactsRecyclerView.visibility = View.VISIBLE
 
-                        contactsAdapter.differ.submitList(it.data)
+                            contactsAdapter.differ.submitList(it.data)
+                        }
+                        is Resource.Error -> {
+                            contactsMessageTextView.visibility = View.VISIBLE
+                            contactsMessageTextView.text = it.message
+                        }
+                        else -> Unit
                     }
-                    is Resource.Error -> {
-                        binding.contactsMessageTextView.visibility = View.VISIBLE
-                        binding.contactsMessageTextView.text = it.message
-                    }
-                    else -> Unit
                 }
             }
         }

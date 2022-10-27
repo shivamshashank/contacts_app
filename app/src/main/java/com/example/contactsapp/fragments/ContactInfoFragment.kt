@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.contactsapp.R
-import com.example.contactsapp.data.SingleContact
+import com.example.contactsapp.model.SingleContact
 import com.example.contactsapp.databinding.FragmentContactInfoBinding
 
 class ContactInfoFragment : Fragment(R.layout.fragment_contact_info) {
@@ -37,6 +38,14 @@ class ContactInfoFragment : Fragment(R.layout.fragment_contact_info) {
             lastNameTextView.text = "Last Name : ${singleContact.last_name}"
             phoneTextView.text = "Phone : ${singleContact.phone}"
             emailTextView.text = "Email : ${singleContact.email}"
+
+            sendMessageButton.setOnClickListener {
+                findNavController().navigate(
+                    ContactInfoFragmentDirections.actionContactInfoFragmentToSendMessageFragment(
+                        singleContact.phone,
+                    )
+                )
+            }
         }
     }
 }

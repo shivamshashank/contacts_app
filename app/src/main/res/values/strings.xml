@@ -3,5 +3,7 @@
     <string name="contacts">Contacts</string>
     <string name="messages">Messages</string>
     <string name="send_message">Send Message</string>
+    <string name="hi_your_otp_is_123456">Hi. Your OTP is : 123456</string>
+    <string name="send">Send</string>
 
 </resources>

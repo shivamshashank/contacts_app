@@ -1,4 +1,4 @@
-package com.example.contactsapp.data
+package com.example.contactsapp.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

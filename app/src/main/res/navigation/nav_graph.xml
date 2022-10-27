@@ -29,11 +29,15 @@
             app:destination="@id/sendMessageFragment" />
         <argument
             android:name="singleContactArgs"
-            app:argType="com.example.contactsapp.data.SingleContact" />
+            app:argType="com.example.contactsapp.model.SingleContact" />
     </fragment>
     <fragment
         android:id="@+id/sendMessageFragment"
         android:name="com.example.contactsapp.fragments.SendMessageFragment"
         android:label="fragment_send_message"
-        tools:layout="@layout/fragment_send_message" />
+        tools:layout="@layout/fragment_send_message">
+        <argument
+            android:name="phoneArgs"
+            app:argType="string" />
+    </fragment>
 </navigation>

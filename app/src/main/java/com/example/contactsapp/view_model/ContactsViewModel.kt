@@ -3,7 +3,7 @@ package com.example.contactsapp.view_model
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.contactsapp.data.SingleContact
+import com.example.contactsapp.model.SingleContact
 import com.example.contactsapp.utils.Resource
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
