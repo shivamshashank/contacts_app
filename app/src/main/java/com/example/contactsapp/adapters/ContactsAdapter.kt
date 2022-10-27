@@ -23,8 +23,11 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>
                 firstNameTextView.text = "First Name : ${singleContact.first_name}"
                 lastNameTextView.text = "Last Name : ${singleContact.last_name}"
 
-                if (singleContact.id < 2)
+                if (singleContact.id < 2) {
                     statusTextView.visibility = View.VISIBLE
+                } else {
+                    statusTextView.visibility = View.GONE
+                }
 
                 cardView.setOnClickListener {
                     findNavController(it.findFragment()).navigate(
