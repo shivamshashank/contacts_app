@@ -2,7 +2,7 @@ package com.example.contactsapp.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.contactsapp.model.get_message.GetMessageModel
+import com.example.contactsapp.model.get_message.Message
 import com.example.contactsapp.repository.MessagesRepository
 import com.example.contactsapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,22 +13,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GetMessagesViewModel @Inject constructor(private val messagesRepository: MessagesRepository) :
+class PostMessageViewModel @Inject constructor(private val messagesRepository: MessagesRepository) :
     ViewModel() {
-    private val _getMessageStateFlow: MutableStateFlow<Resource<GetMessageModel>> =
+    private val _postMessageStateFlow: MutableStateFlow<Resource<Message>> =
         MutableStateFlow(Resource.Initial())
 
-    val getMessageStateFlow: StateFlow<Resource<GetMessageModel>> = _getMessageStateFlow
+    val postMessageStateFlow: StateFlow<Resource<Message>> = _postMessageStateFlow
 
-    fun getAllMessages() = viewModelScope.launch {
-        _getMessageStateFlow.value = Resource.Loading()
+    fun postMessage(from: String, to: String, body: String) = viewModelScope.launch {
+        _postMessageStateFlow.value = Resource.Loading()
 
-        messagesRepository.getAllMessages()
+        messagesRepository.postMessage(from, to, body)
             .catch { e ->
-                _getMessageStateFlow.value =
+                _postMessageStateFlow.value =
                     Resource.Error(message = e.message ?: "An Unknown Error Occurred")
             }.collect {
-                _getMessageStateFlow.value = Resource.Success(data = it)
+                _postMessageStateFlow.value = Resource.Success(data = it)
             }
     }
 }

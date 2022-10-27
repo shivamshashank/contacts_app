@@ -13,10 +13,8 @@ import com.example.contactsapp.adapters.ContactsAdapter
 import com.example.contactsapp.databinding.FragmentContactsBinding
 import com.example.contactsapp.utils.Resource
 import com.example.contactsapp.view_model.ContactsViewModel
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
-@AndroidEntryPoint
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     private lateinit var binding: FragmentContactsBinding
     private lateinit var contactsAdapter: ContactsAdapter

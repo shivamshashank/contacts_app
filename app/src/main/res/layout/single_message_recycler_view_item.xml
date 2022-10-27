@@ -16,22 +16,55 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/first_name_text_view"
+            android:id="@+id/from_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            tools:text="First Name : Shivam" />
+            tools:text="From : +12058984846" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
         <TextView
-            android:id="@+id/last_name_text_view"
+            android:id="@+id/to_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            tools:text="Last Name : Shashank" />
+            tools:text="To : +917273836070" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/body_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            tools:text="Body : Sent from your Twilio trial account - Yes It is working" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/status_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            tools:text="Status : delivered" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            tools:text="Date : Thu, 27 Oct 2022 09:49:20" />
 
     </LinearLayout>
 

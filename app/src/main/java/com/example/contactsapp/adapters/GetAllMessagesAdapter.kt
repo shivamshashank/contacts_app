@@ -1,5 +1,6 @@
 package com.example.contactsapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -32,12 +33,17 @@ class GetAllMessagesAdapter : RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
+@SuppressLint("SetTextI18n")
 class MyViewHolder(private val binding: SingleMessageRecyclerViewItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(message: Message) {
         binding.apply {
-
+            fromTextView.text = "From : " + message.from
+            toTextView.text = "To : " + message.to
+            bodyTextView.text = "Body : " + message.body
+            statusTextView.text = "Status : " + message.status
+            dateTextView.text = "Date : " + message.date_created.substring(0, message.date_created.length - 5)
         }
     }
 

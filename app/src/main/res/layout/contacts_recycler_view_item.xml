@@ -33,6 +33,17 @@
             android:textSize="18sp"
             tools:text="Last Name : Shashank" />
 
+        <TextView
+            android:id="@+id/status_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/verified"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

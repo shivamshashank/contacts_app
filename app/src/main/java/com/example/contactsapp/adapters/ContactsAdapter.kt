@@ -2,15 +2,16 @@ package com.example.contactsapp.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactsapp.model.SingleContact
 import com.example.contactsapp.databinding.ContactsRecyclerViewItemBinding
 import com.example.contactsapp.fragments.ContactsFragmentDirections
+import com.example.contactsapp.model.SingleContact
 
 @SuppressLint("SetTextI18n")
 class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>() {
@@ -22,9 +23,14 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder>
                 firstNameTextView.text = "First Name : ${singleContact.first_name}"
                 lastNameTextView.text = "Last Name : ${singleContact.last_name}"
 
+                if (singleContact.id < 2)
+                    statusTextView.visibility = View.VISIBLE
+
                 cardView.setOnClickListener {
                     findNavController(it.findFragment()).navigate(
-                        ContactsFragmentDirections.actionContactsFragmentToContactInfoFragment(singleContact)
+                        ContactsFragmentDirections.actionContactsFragmentToContactInfoFragment(
+                            singleContact
+                        )
                     )
                 }
             }
